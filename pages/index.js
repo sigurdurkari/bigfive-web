@@ -17,7 +17,7 @@ export default class Index extends React.Component {
   }
   render () {
     return (
-      <Page pageTitle='BigFive Personality Test' isIE11={this.props.isIE11}>
+      <Page pageTitle='Ég um mig' isIE11={this.props.isIE11}>
         <TheTest userAgent={this.props.userAgent} ip={this.props.ip} />
       </Page>
     )

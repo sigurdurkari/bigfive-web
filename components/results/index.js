@@ -51,8 +51,8 @@ export default class Results extends React.Component {
       <div>
         <Loading loading={this.state.loading} />
         <div style={{display: this.state.loading ? 'none' : 'block'}}>
-          <p className='question'>Test results</p>
-          <p className='title2'>Domains</p>
+          <p className='question'>Niðurstöður</p>
+          <p className='title2'>Þættir</p>
           <div>
             <BarChart
               data={this.state.stats}
@@ -72,14 +72,14 @@ export default class Results extends React.Component {
                   <br />
                   <div style={{display: this.state[d.domain] || 'none'}}><span dangerouslySetInnerHTML={{__html: d.description}} /></div>
                   <span name={d.domain} onClick={this.readMore} style={{textTransform: 'lowercase', color: '#5991ff'}}>
-                    {this.state[d.domain] === 'block' ? '...read less' : `... read more (${d.description.split(' ').length} words)`}
+                    {this.state[d.domain] === 'block' ? '... lesa minna' : `... lesa meira (${d.description.split(' ').length} orð)`}
                   </span>
                 </p>
                 <p><span dangerouslySetInnerHTML={{__html: d.text}} /> </p>
-                <p>Your level of <i>{d.title.toLowerCase()}</i> is <b>{d.scoreText} ({d.score}/{d.count * 5})</b></p>
+                <p>Stig þín í þættinum <i>{d.title.toLowerCase()}</i> eru <b>{d.scoreText} ({d.score}/{d.count * 5})</b></p>
                 <div style={{ display: d.facets.length > 1 ? 'block' : 'none' }} >
                   <BarChart
-                    data={[{values: Object.assign(d.facets.map(s => ({x: `${s.title} (${s.score})`, y: s.score})))}]}
+                    data={[{values: Object.assign(d.facets.map(s => ({x: `${s.title} (${s.score}/${s.count*5})`, y: (s.count > 0 ? s.score/s.count : 0)})))}]}
                     width={this.state.innerWidth}
                     hoverAnimation={false}
                     height={this.state.innerHeight}

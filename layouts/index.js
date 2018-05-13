@@ -35,6 +35,11 @@ export default ({pageTitle, isIE11, children}) => (
               width: 90% !important;
             }
           }
+          @media (max-width:1920px) {
+            .container {
+              width: 85% !important
+            }
+          }
           .footer {
             position: absolute;
             padding-top: 20px;
@@ -68,7 +73,7 @@ export default ({pageTitle, isIE11, children}) => (
           }
           .container {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            width: 85%;
+            width: 50%;
             margin: auto;
           }
           .header {
@@ -129,10 +134,6 @@ export default ({pageTitle, isIE11, children}) => (
         <div className='page-text'>
           {children}
         </div>
-      </div>
-      <div className='footer'>
-        <a href='https://github.com/maccyber/bigfive-web'>Bigfive-web</a> - We need <a href='https://github.com/maccyber/bigfive-web'>help</a> with translations<br />
-        Made with ❤ by <a href='https://github.com/zrrrzzt/'>zrrrzzt</a> and <a href='https://github.com/maccyber'>maccyber</a>
       </div>
     </div>
   </div>
